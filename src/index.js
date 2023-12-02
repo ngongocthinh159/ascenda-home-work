@@ -11,7 +11,7 @@ const { convertStringDateToDateObject } = require('./utils/utils');
 const fs = require('fs').promises;
 const path = require('path');
 
-// Setup
+// Tweak parameters
 const acceptedDateFormats = ['YYYY-MM-DD'];
 const selectedCategoryIds = [1, 2, 4];
 const validRange = {
