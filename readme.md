@@ -10,7 +10,7 @@ npm install
 
 Mocking data by copying and pasting data into "./src/input.json". Note that the input data must be a valid JSON format or the program will stop and notify the error.
 
-Before running the program, there are some parameters can be tweaked on top of "./src/index.js". The default values following the requirements:
+Before running the program, there are some parameters can be tweaked on top of "./src/index.js". The default values satisfy the requirements:
 
 ![1701521876903](image/readme/1701521876903.png)
 
