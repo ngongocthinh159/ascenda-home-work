@@ -36,10 +36,10 @@ const MAX_NUMBER_OF_RETURNED_OFFERS = 2;
     // Filter offers
     const offerDetails = parsedInput['offers'];
     const filterStrategy = new FilterStrategy(
-      new SelectedListCategoryFilterStrategy(selectedCategoryIds),
-      new RangeOfferDateFilterStrategy(checkInDate, validRange, acceptedDateFormats),
-      new MinDistMerchantPriorityStrategy(), // Use can try MaxDistMerchantPriorityStrategy
-      new SimpleOfferPriorityStrategy(MAX_NUMBER_OF_RETURNED_OFFERS)
+      new SelectedListCategoryFilterStrategy(selectedCategoryIds), // strategy to filter invalid categories
+      new RangeOfferDateFilterStrategy(checkInDate, validRange, acceptedDateFormats), // strategy to filter offer date
+      new MinDistMerchantPriorityStrategy(), // strategy to choose prioritized merchants for each offer. Use can try MaxDistMerchantPriorityStrategy
+      new SimpleOfferPriorityStrategy(MAX_NUMBER_OF_RETURNED_OFFERS) // strategy to choose prioritized offers after filtering all invalid offers
     );
     const filteredOffers = filter(offerDetails, filterStrategy);
     const result = { offers: filteredOffers };
