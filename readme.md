@@ -22,4 +22,6 @@ npm start 2019-12-25
 
 The result will be printed in the console and also can be found in "./src/output.json".
 
-User can try different strategies for filtering and selecting making the application highly flexible for customization. For example, an predefined "MaxDistMerchantPriorityStrategy" that only choose the merchant with the maximum distance of each offer.
+User can try different strategies for filtering and selecting that making the application highly flexible for customization. For example, an predefined "MaxDistMerchantPriorityStrategy" that only choose the merchant with the maximum distance of each offer.
+
+Those filtering strategies following the practice of strategy design pattern. Because JS do not have interface, this source use parent class as the interface for children class to implement different strategies.
