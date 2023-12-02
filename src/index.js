@@ -9,6 +9,7 @@ const {
 const { SimpleOfferPriorityStrategy } = require('./model/offer-priority-strategy/SimpleOfferPriorityStrategy');
 const { convertStringDateToDateObject } = require('./utils/utils');
 const fs = require('fs').promises;
+const path = require('path');
 
 // Setup
 const acceptedDateFormats = ['YYYY-MM-DD'];
@@ -29,7 +30,7 @@ const MAX_NUMBER_OF_RETURNED_OFFERS = 2;
     // Validate input
     const checkInDate = convertStringDateToDateObject(process.argv[2], acceptedDateFormats);
     if (!checkInDate) throw new Error('invalid check-in date format');
-    const parsedInput = JSON.parse(await fs.readFile('input.json', 'utf8'));
+    const parsedInput = JSON.parse(await fs.readFile(path.join(__dirname, 'input.json'), 'utf8'));
     if (!parsedInput['offers'] || !(parsedInput['offers'] instanceof Array)) throw new Error('invalid input format');
 
     // Filter offers
@@ -44,7 +45,7 @@ const MAX_NUMBER_OF_RETURNED_OFFERS = 2;
     const result = { offers: filteredOffers };
 
     // Output result
-    await fs.writeFile('output.json', JSON.stringify(result, undefined, 4));
+    await fs.writeFile(path.join(__dirname, 'output.json'), JSON.stringify(result, undefined, 4));
   } catch (err) {
     console.error(err);
   }
